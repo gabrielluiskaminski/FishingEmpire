@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $products = Product::query()->where('is_active', true)->paginate(12);
 
         return response()->json($products);
