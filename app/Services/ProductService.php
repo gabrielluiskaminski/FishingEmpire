@@ -39,7 +39,7 @@ class ProductService
         return $query->paginate(12)->appends($filters);
     }
 
-    public function findById(int $id): Product
+    public function findProductById(int $id): Product
     {
         return Product::query()->where('is_active', true)->with('category:id,name')->findOrFail($id);
     }

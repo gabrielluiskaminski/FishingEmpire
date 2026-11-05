@@ -17,9 +17,9 @@ class IndexProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'search' => ['nullable', 'string', 'max:100'],
+            'search'      => ['nullable', 'string', 'max:100'],
             'category_id' => ['nullable', 'integer', 'min:1', 'exists:categories,id'],
-            'sort' => ['nullable', 'in:price_asc,price_desc,name_asc'],
+            'sort'        => ['nullable', 'in:price_asc,price_desc,name_asc'],
         ];
     }
 }

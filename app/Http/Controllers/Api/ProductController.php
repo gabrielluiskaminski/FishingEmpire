@@ -16,9 +16,9 @@ class ProductController extends Controller
         return ProductResource::collection($products);
     }
 
-    public function show(int $id, ProductService $productService): ProductResource
+    public function show(ProductService $productService, int $id): ProductResource
     {
-        $product = $productService->findById($id);
+        $product = $productService->findProductById($id);
 
         return new ProductResource($product);
     }
