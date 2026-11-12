@@ -91,26 +91,67 @@ class CartService
         });
    }
 
-   public function mergeGuestCart (User $user, ?string $guestToken): void
+   public function mergeGuestCart (User $user, ?string $guestToken): array
    {
         if (!$guestToken){
-            return;
+            return [];
         }
 
-        DB::transaction(function () use ($user, $guestToken){
+         return DB::transaction(function () use ($user, $guestToken){
             $guestCart = Cart::where('guest_token', $guestToken)->lockForUpdate()->first();
 
             if (!$guestCart){
-                return;
+                return [];
             }
 
             $userCart = $this->getOrCreateUserCart($user);
 
-            foreach ($guestCart->cartItems as $item) {
-                $this->addItem($userCart, $item->product_id, $item->quantity);
+            Cart::whereKey($userCart->id)->lockForUpdate()->firstOrFail();
+
+            $warnings = [];
+
+            foreach ($guestCart->cartItems as $guestItem) {
+
+                $product = Product::whereKey($guestItem->product_id)->lockForUpdate()->first();
+            
+                if (!$product || !$product ->is_active || $product->stock < 1) {
+                    $warnings[] = [
+                        'product_id' => $guestItem->product_id,
+                        'message' => 'Produto indisponível. Item não transferido.'
+                    ];
+
+                    continue;
+                }
+            
+                $userItem = $userCart->cartItems()->where('product_id', $product->id)->first();
+
+                $requestedQuantity = ($userItem->quantity ?? 0) + $guestItem->quantity;
+
+                $finalQuantity = min($requestedQuantity, $product->stock);
+
+                if ($finalQuantity < $requestedQuantity){
+                    $warnings[] = [
+                        'product_id' => $product->id,
+                        'message'    => 'Quantidade ajustada ao estoque disponível.',
+                        'requested'  => $requestedQuantity,
+                        'accepted'   => $finalQuantity
+                    ];
+                }
+
+                if (!$userItem) {
+                    $userItem = $userCart->cartItems()->make([
+                        'product_id' => $product->id
+                    ]);
+                }
+
+                $userItem->setRelation('product', $product);
+
+                $this->saveQuantity($userItem, $finalQuantity);
             }
 
             $guestCart->delete();
+
+            return $warnings;
         });
    }
 
