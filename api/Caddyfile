@@ -1,0 +1,15 @@
+# FrankenPHP/Caddy em HTTP interno; o Nginx do projeto é o proxy na porta 8000.
+{
+    auto_https off
+}
+
+:80 {
+    root * /app/public
+    encode gzip
+
+    # Swagger permanece estático e acessível exatamente em /api/docs.
+    @docsExact path /api/docs
+    rewrite @docsExact /api/docs/index.html
+
+    php_server
+}

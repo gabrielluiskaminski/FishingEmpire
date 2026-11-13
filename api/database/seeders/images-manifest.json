@@ -1,0 +1,254 @@
+[
+  {
+    "id_seed_order": 1,
+    "category": "Varas",
+    "name": "Vara telescópica 2,10 m",
+    "image_path": "products/01-vara-telescopica-2-10-m.webp",
+    "image_source": "rod"
+  },
+  {
+    "id_seed_order": 2,
+    "category": "Varas",
+    "name": "Vara de carbono 1,80 m",
+    "image_path": "products/02-vara-de-carbono-1-80-m.webp",
+    "image_source": "rod_env"
+  },
+  {
+    "id_seed_order": 3,
+    "category": "Varas",
+    "name": "Vara para molinete 2,40 m",
+    "image_path": "products/03-vara-para-molinete-2-40-m.webp",
+    "image_source": "rod"
+  },
+  {
+    "id_seed_order": 4,
+    "category": "Varas",
+    "name": "Vara para carretilha 1,68 m",
+    "image_path": "products/04-vara-para-carretilha-1-68-m.webp",
+    "image_source": "rod_env"
+  },
+  {
+    "id_seed_order": 5,
+    "category": "Varas",
+    "name": "Vara ultralight 1,50 m",
+    "image_path": "products/05-vara-ultralight-1-50-m.webp",
+    "image_source": "rod"
+  },
+  {
+    "id_seed_order": 6,
+    "category": "Varas",
+    "name": "Vara de praia 3,60 m",
+    "image_path": "products/06-vara-de-praia-3-60-m.webp",
+    "image_source": "rod_env"
+  },
+  {
+    "id_seed_order": 7,
+    "category": "Molinetes e Carretilhas",
+    "name": "Molinete tamanho 1000",
+    "image_path": "products/07-molinete-tamanho-1000.webp",
+    "image_source": "reel"
+  },
+  {
+    "id_seed_order": 8,
+    "category": "Molinetes e Carretilhas",
+    "name": "Molinete tamanho 3000",
+    "image_path": "products/08-molinete-tamanho-3000.webp",
+    "image_source": "reel_env"
+  },
+  {
+    "id_seed_order": 9,
+    "category": "Molinetes e Carretilhas",
+    "name": "Molinete tamanho 5000",
+    "image_path": "products/09-molinete-tamanho-5000.webp",
+    "image_source": "reel"
+  },
+  {
+    "id_seed_order": 10,
+    "category": "Molinetes e Carretilhas",
+    "name": "Carretilha perfil baixo 7.2:1",
+    "image_path": "products/10-carretilha-perfil-baixo-7-2-1.webp",
+    "image_source": "bait_env"
+  },
+  {
+    "id_seed_order": 11,
+    "category": "Molinetes e Carretilhas",
+    "name": "Carretilha perfil alto",
+    "image_path": "products/11-carretilha-perfil-alto.webp",
+    "image_source": "bait"
+  },
+  {
+    "id_seed_order": 12,
+    "category": "Molinetes e Carretilhas",
+    "name": "Carretilha BFS ultraleve",
+    "image_path": "products/12-carretilha-bfs-ultraleve.webp",
+    "image_source": "bait_env"
+  },
+  {
+    "id_seed_order": 13,
+    "category": "Iscas",
+    "name": "Isca artificial meia-água 9 cm",
+    "image_path": "products/13-isca-artificial-meia-agua-9-cm.webp",
+    "image_source": "lure"
+  },
+  {
+    "id_seed_order": 14,
+    "category": "Iscas",
+    "name": "Isca artificial de superfície 11 cm",
+    "image_path": "products/14-isca-artificial-de-superficie-11-cm.webp",
+    "image_source": "lure_env"
+  },
+  {
+    "id_seed_order": 15,
+    "category": "Iscas",
+    "name": "Isca de silicone shad 8 cm",
+    "image_path": "products/15-isca-de-silicone-shad-8-cm.webp",
+    "image_source": "lure"
+  },
+  {
+    "id_seed_order": 16,
+    "category": "Iscas",
+    "name": "Spinner metálico 12 g",
+    "image_path": "products/16-spinner-metalico-12-g.webp",
+    "image_source": "lure"
+  },
+  {
+    "id_seed_order": 17,
+    "category": "Iscas",
+    "name": "Colher oscilante 18 g",
+    "image_path": "products/17-colher-oscilante-18-g.webp",
+    "image_source": "lure_env"
+  },
+  {
+    "id_seed_order": 18,
+    "category": "Iscas",
+    "name": "Kit de iscas soft 10 unidades",
+    "image_path": "products/18-kit-de-iscas-soft-10-unidades.webp",
+    "image_source": "tackle_env"
+  },
+  {
+    "id_seed_order": 19,
+    "category": "Anzóis e Terminais",
+    "name": "Anzol maruseigo nº 10 - 10 un.",
+    "image_path": "products/19-anzol-maruseigo-no-10-10-un.webp",
+    "image_source": "hook"
+  },
+  {
+    "id_seed_order": 20,
+    "category": "Anzóis e Terminais",
+    "name": "Anzol wide gap nº 3/0 - 5 un.",
+    "image_path": "products/20-anzol-wide-gap-no-3-0-5-un.webp",
+    "image_source": "hook_env"
+  },
+  {
+    "id_seed_order": 21,
+    "category": "Anzóis e Terminais",
+    "name": "Anzol circular nº 2/0 - 10 un.",
+    "image_path": "products/21-anzol-circular-no-2-0-10-un.webp",
+    "image_source": "hook"
+  },
+  {
+    "id_seed_order": 22,
+    "category": "Anzóis e Terminais",
+    "name": "Girador com snap - 10 un.",
+    "image_path": "products/22-girador-com-snap-10-un.webp",
+    "image_source": "swivel"
+  },
+  {
+    "id_seed_order": 23,
+    "category": "Anzóis e Terminais",
+    "name": "Chumbada oliva 20 g - 5 un.",
+    "image_path": "products/23-chumbada-oliva-20-g-5-un.webp",
+    "image_source": "sinker_env"
+  },
+  {
+    "id_seed_order": 24,
+    "category": "Anzóis e Terminais",
+    "name": "Empate de aço 30 cm - 3 un.",
+    "image_path": "products/24-empate-de-aco-30-cm-3-un.webp",
+    "image_source": "swivel"
+  },
+  {
+    "id_seed_order": 25,
+    "category": "Linhas",
+    "name": "Linha monofilamento 0,30 mm 100 m",
+    "image_path": "products/25-linha-monofilamento-0-30-mm-100-m.webp",
+    "image_source": "line"
+  },
+  {
+    "id_seed_order": 26,
+    "category": "Linhas",
+    "name": "Linha monofilamento 0,40 mm 100 m",
+    "image_path": "products/26-linha-monofilamento-0-40-mm-100-m.webp",
+    "image_source": "line_env"
+  },
+  {
+    "id_seed_order": 27,
+    "category": "Linhas",
+    "name": "Linha multifilamento 0,20 mm 150 m",
+    "image_path": "products/27-linha-multifilamento-0-20-mm-150-m.webp",
+    "image_source": "line"
+  },
+  {
+    "id_seed_order": 28,
+    "category": "Linhas",
+    "name": "Linha multifilamento 0,28 mm 150 m",
+    "image_path": "products/28-linha-multifilamento-0-28-mm-150-m.webp",
+    "image_source": "line_env"
+  },
+  {
+    "id_seed_order": 29,
+    "category": "Linhas",
+    "name": "Linha fluorcarbono 0,35 mm 50 m",
+    "image_path": "products/29-linha-fluorcarbono-0-35-mm-50-m.webp",
+    "image_source": "leader"
+  },
+  {
+    "id_seed_order": 30,
+    "category": "Linhas",
+    "name": "Leader fluorcarbono 0,45 mm 20 m",
+    "image_path": "products/30-leader-fluorcarbono-0-45-mm-20-m.webp",
+    "image_source": "leader"
+  },
+  {
+    "id_seed_order": 31,
+    "category": "Acessórios",
+    "name": "Óculos polarizados para pesca",
+    "image_path": "products/31-oculos-polarizados-para-pesca.webp",
+    "image_source": "glasses"
+  },
+  {
+    "id_seed_order": 32,
+    "category": "Acessórios",
+    "name": "Alicate de contenção de peixe",
+    "image_path": "products/32-alicate-de-contencao-de-peixe.webp",
+    "image_source": "gripper"
+  },
+  {
+    "id_seed_order": 33,
+    "category": "Acessórios",
+    "name": "Pinça removedora de anzol",
+    "image_path": "products/33-pinca-removedora-de-anzol.webp",
+    "image_source": "pliers"
+  },
+  {
+    "id_seed_order": 34,
+    "category": "Acessórios",
+    "name": "Alicate de bico longo",
+    "image_path": "products/34-alicate-de-bico-longo.webp",
+    "image_source": "pliers"
+  },
+  {
+    "id_seed_order": 35,
+    "category": "Acessórios",
+    "name": "Bolsa de apetrechos",
+    "image_path": "products/35-bolsa-de-apetrechos.webp",
+    "image_source": "backpack"
+  },
+  {
+    "id_seed_order": 36,
+    "category": "Acessórios",
+    "name": "Caixa organizadora para iscas",
+    "image_path": "products/36-caixa-organizadora-para-iscas.webp",
+    "image_source": "tackle"
+  }
+]

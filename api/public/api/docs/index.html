@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Documentação da API FishingEmpire">
+  <title>FishingEmpire · Swagger UI</title>
+  <link rel="stylesheet" href="/api/docs/assets/swagger-ui.css">
+  <style>
+    html { overflow-y: scroll; }
+    body { margin: 0; background: #fafafa; }
+    .topbar { display: none !important; }
+    .fishing-docs-heading { background: #132f2a; color: white; padding: 16px 24px; font: 600 20px/1.4 system-ui, sans-serif; }
+    .fishing-docs-heading small { display: block; font-size: 12px; font-weight: 400; color: #dceae5; }
+    #swagger-error { display: none; margin: 16px 24px; padding: 12px; border: 1px solid #b91c1c; color: #991b1b; font: 14px system-ui,sans-serif; }
+  </style>
+</head>
+<body>
+  <header class="fishing-docs-heading">FishingEmpire · API REST
+    <small>Swagger UI local · Sessão Sanctum, cookies e proteção CSRF</small>
+  </header>
+  <div id="swagger-error" role="alert"></div>
+  <div id="swagger-ui"></div>
+  <script src="/api/docs/assets/swagger-ui-bundle.js"></script>
+  <script src="/api/docs/assets/swagger-ui-standalone-preset.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      function getCookie(name) {
+        const part = document.cookie.split('; ').find(row => row.startsWith(name + '='));
+        return part ? part.slice(name.length + 1) : null;
+      }
+      async function sameOriginWithCsrf(request) {
+        // Swagger UI usa a sessão do navegador; nenhum Bearer/API key é solicitado.
+        request.credentials = 'include';
+        const method = String(request.method || 'GET').toUpperCase();
+        if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(method)) {
+          // Requisita o cookie CSRF na mesma origem ANTES da mutação. O próprio navegador
+          // anexa o cookie HttpOnly cookie de sessão Laravel (por padrão, fishingempire-session nesta configuração); XSRF-TOKEN é legível por JavaScript.
+          const result = await fetch('/sanctum/csrf-cookie', {
+            method: 'GET', credentials: 'include', headers: { 'Accept': 'application/json' }
+          });
+          if (!result.ok) {
+            throw new Error('Não foi possível inicializar o CSRF (HTTP ' + result.status + ').');
+          }
+          const token = getCookie('XSRF-TOKEN');
+          if (!token) {
+            throw new Error('Cookie XSRF-TOKEN ausente. Verifique se /sanctum/csrf-cookie é encaminhado pelo proxy.');
+          }
+          request.headers = request.headers || {};
+          request.headers['X-XSRF-TOKEN'] = decodeURIComponent(token);
+        }
+        return request;
+      }
+      function showError(message) {
+        const el = document.getElementById('swagger-error');
+        el.textContent = message;
+        el.style.display = 'block';
+      }
+      try {
+        if (typeof SwaggerUIBundle !== 'function' || typeof SwaggerUIStandalonePreset === 'undefined') {
+          throw new Error('Os assets locais do Swagger UI não foram carregados.');
+        }
+        window.ui = SwaggerUIBundle({
+          url: '/api/docs/openapi.yaml',
+          dom_id: '#swagger-ui',
+          deepLinking: true,
+          presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+          layout: 'StandaloneLayout',
+          persistAuthorization: false,
+          validatorUrl: null,
+          withCredentials: true,
+          requestInterceptor: sameOriginWithCsrf,
+          onComplete: function () { /* Especificação carregada pelo Swagger UI. */ }
+        });
+      } catch (error) {
+        showError('Falha ao iniciar documentação: ' + error.message);
+      }
+    })();
+  </script>
+</body>
+</html>

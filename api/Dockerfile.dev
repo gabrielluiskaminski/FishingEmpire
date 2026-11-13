@@ -1,0 +1,19 @@
+# FrankenPHP + PHP 8.4, servido pelo proxy Nginx na porta externa 8000.
+FROM dunglas/frankenphp:1-php8.4
+
+COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
+RUN apt-get update && apt-get install -y --no-install-recommends curl \
+    && rm -rf /var/lib/apt/lists/* \
+    && install-php-extensions pdo_mysql pdo_sqlite zip bcmath opcache \
+    && cp "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
+
+WORKDIR /app
+COPY . /app
+COPY Caddyfile /etc/frankenphp/Caddyfile
+RUN composer install --no-interaction --prefer-dist --no-progress \
+    && composer check-platform-reqs
+
+EXPOSE 80
+
+# Cria o link storage/public automaticamente, inclusive com bind mount do desenvolvimento.
+CMD ["sh", "-c", "if [ -f .env ] && grep -q '^APP_KEY=$' .env; then php artisan key:generate --force; fi; if [ ! -e public/storage ] && [ ! -L public/storage ]; then php artisan storage:link; fi; exec frankenphp run --config /etc/frankenphp/Caddyfile"]
